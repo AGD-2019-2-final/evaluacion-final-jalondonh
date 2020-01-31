@@ -30,6 +30,6 @@ u = LOAD 'data.csv' USING PigStorage(',')
 --
 
 v = FOREACH u GENERATE $1,$4;
-w = FILTER v BY $1 MATCHES '.*[aeiou]';
+w = FILTER v BY $1 MATCHES '.*[aeiou]$';
 
 STORE w INTO 'output' USING PigStorage(',');
